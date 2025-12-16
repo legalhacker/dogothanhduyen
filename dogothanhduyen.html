@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đồ gỗ Thanh Duyên - Đồ gỗ truyền thống Việt Nam</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #2d5016;
+        }
+
+        .logo-circle {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #4a7c2f, #2d5016);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            font-size: 20px;
+            letter-spacing: 1px;
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2d5016;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #4a7c2f;
+        }
+
+        /* Banner */
+        .banner {
+            background: linear-gradient(135deg, #4a7c2f, #2d5016);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .banner h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .banner p {
+            font-size: 18px;
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: white;
+            color: #2d5016;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Giới thiệu */
+        .intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .intro h2 {
+            font-size: 32px;
+            color: #2d5016;
+            margin-bottom: 20px;
+        }
+
+        .intro p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* Danh mục sản phẩm */
+        .products {
+            background: #f8f9fa;
+        }
+
+        .products h2 {
+            text-align: center;
+            font-size: 32px;
+            color: #2d5016;
+            margin-bottom: 50px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: #4a7c2f;
+        }
+
+        .product-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-info h3 {
+            font-size: 20px;
+            color: #2d5016;
+            margin-bottom: 10px;
+        }
+
+        .product-info p {
+            font-size: 15px;
+            color: #666;
+        }
+
+        /* Cam kết */
+        .commitment {
+            background: white;
+        }
+
+        .commitment h2 {
+            text-align: center;
+            font-size: 32px;
+            color: #2d5016;
+            margin-bottom: 50px;
+        }
+
+        .commitment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .commitment-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: background 0.3s;
+        }
+
+        .commitment-item:hover {
+            background: #e8f5e9;
+        }
+
+        .commitment-icon {
+            font-size: 50px;
+            color: #4a7c2f;
+            margin-bottom: 15px;
+        }
+
+        .commitment-item h3 {
+            font-size: 20px;
+            color: #2d5016;
+            margin-bottom: 10px;
+        }
+
+        .commitment-item p {
+            font-size: 15px;
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background: #2d5016;
+            color: white;
+            padding: 40px 20px 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #a5d6a7;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            font-size: 15px;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: #a5d6a7;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .banner h1 {
+                font-size: 32px;
+            }
+
+            .banner p {
+                font-size: 16px;
+            }
+
+            .intro h2,
+            .products h2,
+            .commitment h2 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <div class="logo-circle">TD</div>
+                <span class="logo-text">Đồ gỗ Thanh Duyên</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#home">Trang chủ</a></li>
+                    <li><a href="#products">Sản phẩm</a></li>
+                    <li><a href="#about">Giới thiệu</a></li>
+                    <li><a href="#contact">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <section class="banner" id="home">
+        <h1>Đồ Gỗ Thanh Duyên</h1>
+        <p>Nội thất gỗ truyền thống Việt Nam - Tinh hoa nghề mộc</p>
+        <a href="#contact" class="btn">Liên hệ ngay</a>
+    </section>
+
+    <!-- Giới thiệu -->
+    <section class="container intro" id="about">
+        <h2>Về Chúng Tôi</h2>
+        <p>
+            Đồ gỗ Thanh Duyên là cơ sở sản xuất đồ gỗ nội thất uy tín tại Hải Phòng, 
+            chuyên cung cấp các sản phẩm gỗ truyền thống Việt Nam với chất lượng cao. 
+            Với hơn nhiều năm kinh nghiệm, chúng tôi tự hào mang đến cho khách hàng 
+            những sản phẩm gỗ tự nhiên, bền đẹp, phù hợp với mọi không gian sống hiện đại.
+        </p>
+    </section>
+
+    <!-- Danh mục sản phẩm -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2>Sản Phẩm Nổi Bật</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">🪑</div>
+                    <div class="product-info">
+                        <h3>Bàn Ghế</h3>
+                        <p>Bàn ghế gỗ tự nhiên, thiết kế truyền thống và hiện đại</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">🙏</div>
+                    <div class="product-info">
+                        <h3>Tủ Thờ</h3>
+                        <p>Tủ thờ gỗ cao cấp, trang nghiêm và linh thiêng</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">🛏️</div>
+                    <div class="product-info">
+                        <h3>Giường Ngủ</h3>
+                        <p>Giường gỗ tự nhiên, chắc chắn và sang trọng</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">🛋️</div>
+                    <div class="product-info">
+                        <h3>Sập Gụ</h3>
+                        <p>Sập gụ truyền thống, bền đẹp theo thời gian</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cam kết chất lượng -->
+    <section class="commitment">
+        <div class="container">
+            <h2>Cam Kết Của Chúng Tôi</h2>
+            <div class="commitment-grid">
+                <div class="commitment-item">
+                    <div class="commitment-icon">✓</div>
+                    <h3>Gỗ Tự Nhiên 100%</h3>
+                    <p>Chỉ sử dụng gỗ tự nhiên cao cấp, không pha trộn</p>
+                </div>
+                <div class="commitment-item">
+                    <div class="commitment-icon">⚒️</div>
+                    <h3>Thợ Lành Nghề</h3>
+                    <p>Đội ngũ thợ mộc giàu kinh nghiệm, tay nghề cao</p>
+                </div>
+                <div class="commitment-item">
+                    <div class="commitment-icon">💰</div>
+                    <h3>Giá Cả Hợp Lý</h3>
+                    <p>Giá trực tiếp từ xưởng, không qua trung gian</p>
+                </div>
+                <div class="commitment-item">
+                    <div class="commitment-icon">🚚</div>
+                    <h3>Giao Hàng Tận Nơi</h3>
+                    <p>Miễn phí vận chuyển và lắp đặt tại nhà</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Đồ Gỗ Thanh Duyên</h3>
+                <p>Nội thất gỗ truyền thống Việt Nam chất lượng cao, uy tín hàng đầu tại Hải Phòng.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Liên Hệ</h3>
+                <p>📞 Hotline: 0987052212</p>
+                <p>👤 Anh Thanh</p>
+                <p>📧 Email: info@thanhduyen.vn</p>
+            </div>
+            <div class="footer-section">
+                <h3>Địa Chỉ</h3>
+                <p>📍 Thôn Thái Lai, xã Cẩm Giàng</p>
+                <p>Thành phố Hải Phòng</p>
+                <p>Việt Nam</p>
+            </div>
+            <div class="footer-section">
+                <h3>Giờ Làm Việc</h3>
+                <p>Thứ 2 - Thứ 7: 8:00 - 18:00</p>
+                <p>Chủ nhật: 8:00 - 17:00</p>
+                <p>Hỗ trợ 24/7 qua hotline</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Đồ Gỗ Thanh Duyên. Tất cả quyền được bảo lưu.</p>
+        </div>
+    </footer>
+</body>
+</html>
